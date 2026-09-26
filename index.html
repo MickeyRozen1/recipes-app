@@ -25,7 +25,7 @@
    The anon key is safe to ship in a static page: schema.sql leaves the tables
    unreadable and exposes only RPCs that demand the family id.
 --------------------------------------------------------------------------- */
-const CONFIG={url:'__SUPABASE_URL__',key:'__SUPABASE_ANON_KEY__'};
+const CONFIG={url:'https://whaggauzbbovnxykyxkx.supabase.co',key:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndoYWdnYXV6YmJvdm54eWt5eGt4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA0MzU0NjEsImV4cCI6MjEwNjAxMTQ2MX0.0PgZRC7i7AJCkUUF03xxFEEp9nRQ57DCN8txXDiLD80'};
 
 const $=id=>document.getElementById(id);
 const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n};
