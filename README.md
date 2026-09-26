@@ -59,9 +59,16 @@ anyone. Treat the link like a house key and don't post it publicly.
 
 ## Behaviour notes
 
-- **Images** are resized to max 1000px and JPEG-compressed in the browser, then
-  stored as base64 in the recipe row (capped ~750KB client-side, 1MB server-side).
-  No storage bucket to configure.
+- **Photos** can come from four places: the camera (📷, opens the camera directly
+  on a phone via `capture="environment"`; on desktop it falls back to a file
+  dialog), a file, a `https://` image link, or pasting an image into the form.
+  A saved photo can also be removed, not just replaced.
+  All four funnel through the same gate — reject non-images, reject over 5MB,
+  resize to max 1000px, JPEG-compress, then store as base64 in the recipe row
+  (~750KB client cap, 1MB server cap). No storage bucket to configure.
+- **Photo-by-link is best-effort:** the browser fetches the image to compress it,
+  so a site that doesn't send CORS headers will refuse. The form says so and
+  points you at uploading the file instead.
 - **Freshness** is polled, not live: the gallery refreshes every 30s and on tab
   focus, and never mid-edit. Someone else's new recipe shows up within half a
   minute, not instantly.
